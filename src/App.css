@@ -1,15 +1,24 @@
 body, html {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 .App {
-
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
   width: 100%;
-  height: 17vh;
+  min-height: 20vh;
   background-color: rgb(34, 34, 34);
+}
+.card-grid{
+  width: 100%;
+  min-height: 80vh;
+}
+::after::before {
+  box-sizing: border-box;
 }

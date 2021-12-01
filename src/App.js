@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import CardGrid from "./components/CardGrid";
@@ -9,9 +10,9 @@ const App = () => {
     { id: 3, picture: "Picture3", title: "title3" },
     { id: 4, picture: "Picture4", title: "title4" },
   ]);
-
   const [cardsClicked, setCardsClicked] = useState([]);
-
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const handleCardClicked = (card) => {
     setCardsClicked([...cardsClicked, card]);
@@ -19,20 +20,29 @@ const App = () => {
     console.log("Cards clicked", cardsClicked);
   };
 
-  const handleCardList = (newCardList) => {
-    setCardList(newCardList);
-    console.log("Handle Card List", cardList);
+  useEffect(() => {
+  }, [cardList]);
+
+  useEffect(() => {
+    shuffleCards();
+  }, [cardsClicked]);
+
+  const shuffleCards = () => {
+    let copyCardList = cardList.slice();
+    for (let i = copyCardList.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copyCardList[i], copyCardList[j]] = [copyCardList[j], copyCardList[i]];
+    }
+    setCardList(copyCardList);
   };
 
   return (
     <div className="App">
       <div className="header"></div>
-      {console.log('Updating')}
       <CardGrid
         cardList={cardList}
         cardsClicked={cardsClicked}
         onCardsClicked={handleCardClicked}
-        onCardsList={handleCardList}
       />
     </div>
   );
