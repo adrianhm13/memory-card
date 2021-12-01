@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import CardGrid from "./components/CardGrid";
 
-function App() {
+const App = () => {
+  const [cardList, setCardList] = useState([
+    { id: 1, picture: "Picture1", title: "title1" },
+    { id: 2, picture: "Picture2", title: "title2" },
+    { id: 3, picture: "Picture3", title: "title3" },
+    { id: 4, picture: "Picture4", title: "title4" },
+  ]);
+
+  const [cardsClicked, setCardsClicked] = useState([]);
+
+
+  const handleCardClicked = (card) => {
+    setCardsClicked([...cardsClicked, card]);
+    //Logic to check if it's a gameOver
+    console.log("Cards clicked", cardsClicked);
+  };
+
+  const handleCardList = (newCardList) => {
+    setCardList(newCardList);
+    console.log("Handle Card List", cardList);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header"></div>
+      {console.log('Updating')}
+      <CardGrid
+        cardList={cardList}
+        cardsClicked={cardsClicked}
+        onCardsClicked={handleCardClicked}
+        onCardsList={handleCardList}
+      />
     </div>
   );
-}
+};
 
 export default App;
