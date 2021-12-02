@@ -8,7 +8,8 @@ const CardGrid = (props) => {
 
 
   return (
-    <div className="card-grid">
+    <div className="container">
+    <div className="d-flex flex-row flex-wrap justify-content-center align-items-center">
       {cardList.map((card) => {
         return (
           <Card
@@ -19,6 +20,8 @@ const CardGrid = (props) => {
         );
       })}
     </div>
+    </div>
+
   );
 };
 

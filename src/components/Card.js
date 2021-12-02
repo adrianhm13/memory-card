@@ -1,17 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Card = props => {
-
-    return (
-        <div onClick={() => props.onCardsClicked(props.card)}>
-            <div>
-                <h3>{props.card.picture}</h3>
-            </div>
-            <div>
-                <h3>{props.card.title}</h3>
-            </div>
-        </div>
-    )
-}
+const Card = (props) => {
+  return (
+    <figure onClick={() => props.onCardsClicked(props.card)} className="figure me-3" role="button">
+      <img src={props.card.picture} alt="props.card.title" className="figure-img img-fluid rounded"/>
+      <figcaption className="figure-caption text-center text-light">{props.card.title}</figcaption>
+    </figure>
+  );
+};
 
 export default Card;

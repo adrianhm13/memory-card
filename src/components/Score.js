@@ -1,14 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const Score = props => {
-    const {currentScore, bestScore} = props
+const Score = (props) => {
+  const { currentScore, bestScore } = props;
 
-    return (
-        <div>
-            <h1>{currentScore}</h1>
-            <h1>{bestScore}</h1>
-        </div>
-    )
-}
+  return (
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-sm">
+          <h5 className="text-light text-center">
+            Current Score: {currentScore}
+          </h5>
+          <h5 className="text-light text-center">Best Score: {bestScore}</h5>
+          </div>
+      </div>
+    </div>
+  );
+};
 
-export default React.memo(Score)
+export default React.memo(Score);
