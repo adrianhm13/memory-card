@@ -1,10 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
 const Card = props => {
-    useEffect(() => {
-        return () => {
-        }
-    }, [])
+
     return (
         <div onClick={() => props.onCardsClicked(props.card)}>
             <div>
