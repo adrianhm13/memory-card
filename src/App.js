@@ -84,6 +84,7 @@ const App = () => {
         cardsClicked={cardsClicked}
         onCardsClicked={handleCardClicked}
       />
+      <div className="container-fluid bg-light fixed-bottom text-center">Pictures from <a href="https://displate.com/browse-collections">Displate</a></div>
     </div>
   );
 };
