@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/https//adrianhm13.github.io/memory-card/static/css/main.abd82619.chunk.css",
-    "main.js": "/https//adrianhm13.github.io/memory-card/static/js/main.653d2047.chunk.js",
-    "main.js.map": "/https//adrianhm13.github.io/memory-card/static/js/main.653d2047.chunk.js.map",
-    "runtime-main.js": "/https//adrianhm13.github.io/memory-card/static/js/runtime-main.279e5b51.js",
-    "runtime-main.js.map": "/https//adrianhm13.github.io/memory-card/static/js/runtime-main.279e5b51.js.map",
-    "static/css/2.a75f5a2c.chunk.css": "/https//adrianhm13.github.io/memory-card/static/css/2.a75f5a2c.chunk.css",
-    "static/js/2.c00fab08.chunk.js": "/https//adrianhm13.github.io/memory-card/static/js/2.c00fab08.chunk.js",
-    "static/js/2.c00fab08.chunk.js.map": "/https//adrianhm13.github.io/memory-card/static/js/2.c00fab08.chunk.js.map",
-    "index.html": "/https//adrianhm13.github.io/memory-card/index.html",
-    "static/css/2.a75f5a2c.chunk.css.map": "/https//adrianhm13.github.io/memory-card/static/css/2.a75f5a2c.chunk.css.map",
-    "static/css/main.abd82619.chunk.css.map": "/https//adrianhm13.github.io/memory-card/static/css/main.abd82619.chunk.css.map",
-    "static/js/2.c00fab08.chunk.js.LICENSE.txt": "/https//adrianhm13.github.io/memory-card/static/js/2.c00fab08.chunk.js.LICENSE.txt"
+    "main.css": "/memory-card/static/css/main.abd82619.chunk.css",
+    "main.js": "/memory-card/static/js/main.653d2047.chunk.js",
+    "main.js.map": "/memory-card/static/js/main.653d2047.chunk.js.map",
+    "runtime-main.js": "/memory-card/static/js/runtime-main.06abf29f.js",
+    "runtime-main.js.map": "/memory-card/static/js/runtime-main.06abf29f.js.map",
+    "static/css/2.a75f5a2c.chunk.css": "/memory-card/static/css/2.a75f5a2c.chunk.css",
+    "static/js/2.c00fab08.chunk.js": "/memory-card/static/js/2.c00fab08.chunk.js",
+    "static/js/2.c00fab08.chunk.js.map": "/memory-card/static/js/2.c00fab08.chunk.js.map",
+    "index.html": "/memory-card/index.html",
+    "static/css/2.a75f5a2c.chunk.css.map": "/memory-card/static/css/2.a75f5a2c.chunk.css.map",
+    "static/css/main.abd82619.chunk.css.map": "/memory-card/static/css/main.abd82619.chunk.css.map",
+    "static/js/2.c00fab08.chunk.js.LICENSE.txt": "/memory-card/static/js/2.c00fab08.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.279e5b51.js",
+    "static/js/runtime-main.06abf29f.js",
     "static/css/2.a75f5a2c.chunk.css",
     "static/js/2.c00fab08.chunk.js",
     "static/css/main.abd82619.chunk.css",
