@@ -1,6 +1,5 @@
-
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CardGrid from "./components/CardGrid";
 import Score from "./components/Score";
 
@@ -18,43 +17,48 @@ const App = () => {
   const [cardsClicked, setCardsClicked] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-
-  useEffect(() => {
-  }, [cardList]);
+  const isMounted = useRef(false);
 
   useEffect(() => {
     shuffleCards();
-    checkGameOver();
-    
+    if (isMounted.current) {
+      if (!checkGameOver()) {
+        setCurrentScore(currentScore + 1);
+      }
+    } else {
+      isMounted.current = true;
+    }
   }, [cardsClicked]);
 
   useEffect(() => {
-    console.log("Current",currentScore)
-    console.log("Best",bestScore)
+    console.log("Current", currentScore);
+    console.log("Best", bestScore);
     if (currentScore > bestScore) {
       setBestScore(currentScore);
     }
-  }, [currentScore, bestScore]);
+  }, [currentScore]);
 
   const handleCardClicked = (card) => {
     setCardsClicked([...cardsClicked, card]);
-    setCurrentScore(currentScore + 1);
   };
 
   const checkGameOver = () => {
+    console.log('Check Game Over')
+    const idCardsClicked = cardsClicked.map((item) => {
+      return item.id;
+    });
+    const isDuplicated = idCardsClicked.some((item, index) => {
+      return idCardsClicked.indexOf(item) !== index;
+    });
 
-    const idCardsClicked = cardsClicked.map (item => {return item.id})
-    const isDuplicated = idCardsClicked.some((item, index) => {return idCardsClicked.indexOf(item) !== index
-    })
-
-    if(isDuplicated){
-      setCardsClicked([])
-      setCurrentScore(0)
+    if (isDuplicated) {
+      setCardsClicked([]);
+      setCurrentScore(0);
+      isMounted.current = false
+      return true;
     }
-
-    console.log('idCards', idCardsClicked)
-    console.log('isDuplicated', isDuplicated)
-  }
+    return false;
+  };
 
   const shuffleCards = () => {
     let copyCardList = cardList.slice();
