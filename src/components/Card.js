@@ -1,21 +1,24 @@
 import React from "react";
 import cover from "../pics/cover.jpg";
 
-const Card = ({card, handleChoice}) => {
+const Card = ({card, handleChoice, flipped, disabled}) => {
 
   const handleClick = () => {
-    handleChoice(card)
+    if(!disabled && !flipped) {
+      handleChoice(card);
+    }
   }
 
   return (
+    <div className="single-card">
     <figure
-      className="figure me-3"
+      className={flipped ? "flipped figure me-3" : "figure me-3"}
       role="button"
     >
       <img
         src={card.picture}
         alt={card.title}
-        className="figure-img img-fluid rounded"
+        className="figure-img img-fluid rounded front"
       />
       <img
         src={cover}
@@ -24,6 +27,7 @@ const Card = ({card, handleChoice}) => {
         className="figure-img img-fluid rounded cover"
       />
     </figure>
+    </div>
   );
 };
 

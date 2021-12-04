@@ -9,6 +9,29 @@ body, html {
   width: 162px;
   height: 227px;
 }
+
+.single-card{
+  position: relative;
+}
+
+.single-card .front {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.single-card .cover {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+.flipped .cover {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
 ::after::before {
   box-sizing: border-box;
 }

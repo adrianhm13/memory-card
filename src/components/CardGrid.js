@@ -2,7 +2,7 @@
 import React from "react";
 import Card from "./Card";
 
-const CardGrid = ({cardList, handleChoice}) => {
+const CardGrid = ({cardList, handleChoice, choiceOne, choiceTwo, disabled}) => {
 
   return (
     <div className="container">
@@ -13,6 +13,8 @@ const CardGrid = ({cardList, handleChoice}) => {
             key={card.id}
             card={card}
             handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched === true}
+            disabled={disabled}
           />
         );
       })}

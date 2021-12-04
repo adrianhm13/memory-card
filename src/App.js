@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import CardGrid from "./components/CardGrid";
-import Score from "./components/Score";
 import uniqid from "uniqid";
 
 const films = [
@@ -77,12 +76,15 @@ const App = () => {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   const shuffleCards = () => {
     const cardList = [...films, ...films]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: uniqid() }));
     setTurns(0);
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCardList(cardList);
   };
 
@@ -92,7 +94,7 @@ const App = () => {
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      console.log("evaluating");
+      setDisabled(true)
       if (choiceOne.picture === choiceTwo.picture) {
         setCardList((prevState) => {
           return prevState.map((card) => {
@@ -103,16 +105,23 @@ const App = () => {
             }
           });
         });
+        resetTurn();
       } else {
+        setTimeout(() => resetTurn(), 1000)
       }
-      resetTurn();
+
     }
   }, [choiceOne, choiceTwo]);
 
-  console.log(cardList)
+  // Start the game automatically
+
+  useEffect(() => {
+    shuffleCards();
+  }, [])
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
+    setDisabled(false);
     setTurns((prevState) => prevState + 1);
   };
   return (
@@ -131,7 +140,13 @@ const App = () => {
         <h1 className="display-6 text-light my-4">Turns: {turns}</h1>
       </div>
 
-      <CardGrid cardList={cardList} handleChoice={handleChoice} />
+      <CardGrid
+        cardList={cardList}
+        handleChoice={handleChoice}
+        choiceOne={choiceOne}
+        choiceTwo={choiceTwo}
+        disabled={disabled}
+      />
       <div className="container-fluid bg-light fixed-bottom text-center">
         Pictures from{" "}
         <a href="https://displate.com/browse-collections">Displate</a>
