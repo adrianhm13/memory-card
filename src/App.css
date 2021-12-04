@@ -5,6 +5,10 @@ body, html {
   padding: 0;
 }
 
+.cover{
+  width: 162px;
+  height: 227px;
+}
 ::after::before {
   box-sizing: border-box;
 }

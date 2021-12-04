@@ -2,10 +2,7 @@
 import React from "react";
 import Card from "./Card";
 
-const CardGrid = (props) => {
-  const cardList = props.cardList;
-
-
+const CardGrid = ({cardList, handleChoice}) => {
 
   return (
     <div className="container">
@@ -15,7 +12,7 @@ const CardGrid = (props) => {
           <Card
             key={card.id}
             card={card}
-            onCardsClicked={props.onCardsClicked}
+            handleChoice={handleChoice}
           />
         );
       })}

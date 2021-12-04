@@ -1,10 +1,28 @@
 import React from "react";
+import cover from "../pics/cover.jpg";
 
-const Card = (props) => {
+const Card = ({card, handleChoice}) => {
+
+  const handleClick = () => {
+    handleChoice(card)
+  }
+
   return (
-    <figure onClick={() => props.onCardsClicked(props.card)} className="figure me-3" role="button">
-      <img src={props.card.picture} alt="props.card.title" className="figure-img img-fluid rounded"/>
-      <figcaption className="figure-caption text-center text-light">{props.card.title}</figcaption>
+    <figure
+      className="figure me-3"
+      role="button"
+    >
+      <img
+        src={card.picture}
+        alt={card.title}
+        className="figure-img img-fluid rounded"
+      />
+      <img
+        src={cover}
+        onClick={handleClick}
+        alt="cover"
+        className="figure-img img-fluid rounded cover"
+      />
     </figure>
   );
 };
